@@ -9,6 +9,15 @@ export function formatPrice(amount: number): string {
 }
 
 /**
+ * Format price in Kwanza without decimals (e.g. "558 000 Kz")
+ */
+export function formatKz(amount: number): string {
+  return `${new Intl.NumberFormat('pt-AO', {
+    maximumFractionDigits: 0,
+  }).format(amount)} Kz`;
+}
+
+/**
  * Format date to Portuguese (Angola) format
  */
 export function formatDate(date: Date | string): string {

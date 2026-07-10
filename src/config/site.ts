@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: 'iphonesAO',
-  description: 'Sua loja online de iPhones em Angola',
+  description:
+    'Centro especializado em iPhones em Angola — compra, venda, trade-in e leilões num único local.',
   url: 'https://iphonesao.com',
   ogImage: '/images/og-image.jpg',
   links: {
@@ -19,23 +20,23 @@ export const siteConfig = {
 
 export const navItems = [
   {
-    title: 'Início',
-    href: '/',
+    title: 'Comprar',
+    href: '/comprar',
   },
   {
-    title: 'Produtos',
-    href: '/produtos',
+    title: 'Trade-In',
+    href: '/trade-in',
   },
   {
-    title: 'Promoções',
-    href: '/promocoes',
+    title: 'Vender',
+    href: '/vender',
   },
   {
-    title: 'Sobre',
-    href: '/sobre',
+    title: 'Leilões',
+    href: '/leiloes',
   },
   {
-    title: 'Contato',
-    href: '/contato',
+    title: 'Como Funciona',
+    href: '/como-funciona',
   },
 ];
