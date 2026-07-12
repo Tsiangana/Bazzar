@@ -20,10 +20,6 @@ export const siteConfig = {
 
 export const navItems = [
   {
-    title: 'Comprar',
-    href: '/comprar',
-  },
-  {
     title: 'Trocas',
     href: '/trade-in',
   },

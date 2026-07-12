@@ -80,23 +80,6 @@ export default function TradeInPage() {
         </div>
       </section>
 
-      {/* Destaques */}
-      <section className="mx-auto w-full max-w-7xl px-6 pt-8">
-        <ul className="flex flex-col justify-between gap-3 rounded-xl bg-white px-6 py-4 text-[15px] font-medium sm:flex-row">
-          {highlights.map((item) => (
-            <li key={item.label} className="flex items-center gap-2">
-              <span
-                aria-hidden
-                className="flex h-6 w-6 items-center justify-center rounded-full bg-zinc-950 text-xs text-white"
-              >
-                {item.icon}
-              </span>
-              {item.label}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       {/* Como funciona */}
       <section className="mx-auto w-full max-w-7xl px-6 pt-16">
         <h2 className="text-xl font-semibold">Como funciona</h2>

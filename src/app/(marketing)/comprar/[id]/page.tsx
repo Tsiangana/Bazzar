@@ -66,7 +66,7 @@ export default async function ProdutoPage({
                 <span
                   key={i}
                   className={`relative h-20 w-16 overflow-hidden rounded-lg border ${
-                    i === 0 ? 'border-zinc-950' : 'border-zinc-200'
+                    i === 0 ? 'border-zinc-400' : 'border-zinc-200'
                   }`}
                 >
                   <Image
@@ -121,14 +121,8 @@ export default async function ProdutoPage({
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <button className="h-13 rounded-lg bg-zinc-950 px-10 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
+                <button className="h-13 w-60 cursor-pointer rounded-lg bg-zinc-950 px-10 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
                   Comprar
-                </button>
-                <button
-                  aria-label="Adicionar aos favoritos"
-                  className="flex h-13 w-13 items-center justify-center rounded-lg border border-zinc-300 text-xl hover:border-zinc-500"
-                >
-                  ♡
                 </button>
               </div>
             </div>

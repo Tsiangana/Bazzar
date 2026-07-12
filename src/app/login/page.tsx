@@ -209,12 +209,12 @@ export default function LoginPage() {
               .
             </p>
 
-            <p className="text-center text-[15px] text-zinc-700">
+            <p className="text-center text-[15px] text-zinc-700 ">
               {isSignup ? 'Já tens conta?' : 'Ainda não tens conta?'}{' '}
               <button
                 type="button"
                 onClick={() => setMode(isSignup ? 'entrar' : 'criar')}
-                className="font-semibold text-rose-600 underline underline-offset-2 hover:text-rose-700"
+                className="font-semibold text-rose-600 underline underline-offset-2 hover:text-rose-700 cursor-pointer"
               >
                 {isSignup ? 'Entrar' : 'Criar conta'}
               </button>

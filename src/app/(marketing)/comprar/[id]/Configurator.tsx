@@ -262,7 +262,7 @@ export function Configurator({ product }: { product: CatalogProduct }) {
 
       {/* Resumo */}
       <section className="lg:ml-auto lg:w-1/2">
-        <div className="rounded-2xl border border-zinc-950 bg-white p-7">
+        <div className="rounded-2xl border border-zinc-200 bg-white p-7">
           <h2 className="flex items-center gap-2 text-2xl font-semibold">
             {product.name}
             <span
@@ -296,7 +296,7 @@ export function Configurator({ product }: { product: CatalogProduct }) {
               Poupa {formatKz(savings)}
             </span>
           </p>
-          <button className="mt-6 h-13 w-full rounded-lg bg-zinc-950 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
+          <button className="mt-6 h-13 w-full cursor-pointer rounded-lg bg-zinc-950 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
             Comprar
           </button>
           <p className="mt-4 text-center text-sm text-zinc-600">

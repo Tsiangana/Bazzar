@@ -13,6 +13,7 @@ export interface CatalogProduct {
   reviewsCount: number;
   price: number;
   newPrice: number; // preço do equivalente novo
+  releaseYear: number;
 }
 
 export const catalogProducts: CatalogProduct[] = [
@@ -27,6 +28,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 12622,
     price: 558000,
     newPrice: 989000,
+    releaseYear: 2024,
   },
   {
     id: 'iphone-16-plus',
@@ -39,6 +41,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 3186,
     price: 600000,
     newPrice: 1139000,
+    releaseYear: 2024,
   },
   {
     id: 'iphone-15-plus',
@@ -51,6 +54,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 5607,
     price: 469000,
     newPrice: 989000,
+    releaseYear: 2023,
   },
   {
     id: 'iphone-15',
@@ -63,6 +67,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 34862,
     price: 386000,
     newPrice: 889000,
+    releaseYear: 2023,
   },
   {
     id: 'iphone-16-pro-max',
@@ -74,6 +79,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 8214,
     price: 890000,
     newPrice: 1479000,
+    releaseYear: 2024,
   },
   {
     id: 'iphone-16-pro',
@@ -85,6 +91,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 9861,
     price: 780000,
     newPrice: 1279000,
+    releaseYear: 2024,
   },
   {
     id: 'iphone-15-pro',
@@ -96,6 +103,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 21437,
     price: 620000,
     newPrice: 1179000,
+    releaseYear: 2023,
   },
   {
     id: 'iphone-15-pro-max',
@@ -107,6 +115,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 18752,
     price: 720000,
     newPrice: 1329000,
+    releaseYear: 2023,
   },
   {
     id: 'iphone-14',
@@ -119,6 +128,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 40213,
     price: 310000,
     newPrice: 729000,
+    releaseYear: 2022,
   },
   {
     id: 'iphone-14-pro',
@@ -130,6 +140,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 26504,
     price: 480000,
     newPrice: 999000,
+    releaseYear: 2022,
   },
   {
     id: 'iphone-13',
@@ -142,6 +153,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 58109,
     price: 245000,
     newPrice: 599000,
+    releaseYear: 2021,
   },
   {
     id: 'iphone-se',
@@ -153,6 +165,7 @@ export const catalogProducts: CatalogProduct[] = [
     reviewsCount: 14320,
     price: 138000,
     newPrice: 379000,
+    releaseYear: 2022,
   },
 ];
 
