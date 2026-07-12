@@ -63,7 +63,7 @@ export default async function LeilaoPage({
               <p className="mt-2 text-[15px] text-zinc-600">
                 21 lances · 9 participantes · termina em 2h 14m
               </p>
-              <button className="mt-6 h-13 w-full rounded-lg bg-zinc-950 text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
+              <button className="mt-6 h-13 w-full rounded-lg bg-zinc-950 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
                 Dar lance
               </button>
             </div>

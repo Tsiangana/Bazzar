@@ -296,7 +296,7 @@ export function Configurator({ product }: { product: CatalogProduct }) {
               Poupa {formatKz(savings)}
             </span>
           </p>
-          <button className="mt-6 h-13 w-full rounded-lg bg-zinc-950 text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
+          <button className="mt-6 h-13 w-full rounded-lg bg-zinc-950 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
             Comprar
           </button>
           <p className="mt-4 text-center text-sm text-zinc-600">

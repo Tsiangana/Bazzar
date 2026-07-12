@@ -24,11 +24,11 @@ export const navItems = [
     href: '/comprar',
   },
   {
-    title: 'Trade-In',
+    title: 'Trocas',
     href: '/trade-in',
   },
   {
-    title: 'Vender',
+    title: 'Avaliar e Vender',
     href: '/vender',
   },
   {

@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
-import { Fraunces, Geist, Geist_Mono } from "next/font/google";
+import {
+  Geist_Mono,
+  Montserrat,
+  Nunito,
+  Playwrite_ID,
+  Quicksand,
+} from "next/font/google";
 import "./globals.css";
 
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
 import { siteConfig } from "@/config/site";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
 });
 
@@ -16,10 +30,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
-  subsets: ["latin"],
-  axes: ["opsz"],
+const playwriteId = Playwrite_ID({
+  variable: "--font-playwrite-id",
+  weight: "variable",
 });
 
 export const metadata: Metadata = {
@@ -38,15 +51,13 @@ export default function RootLayout({
   return (
     <html
       lang="pt"
-      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${nunito.variable} ${montserrat.variable} ${quicksand.variable} ${geistMono.variable} ${playwriteId.variable} h-full antialiased`}
     >
       <body
         className="min-h-full flex flex-col bg-white text-ink"
         suppressHydrationWarning
       >
-        <Header />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
+        {children}
       </body>
     </html>
   );

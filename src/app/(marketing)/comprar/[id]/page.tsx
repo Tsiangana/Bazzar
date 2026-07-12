@@ -121,7 +121,7 @@ export default async function ProdutoPage({
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <button className="h-13 rounded-lg bg-zinc-950 px-10 text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
+                <button className="h-13 rounded-lg bg-zinc-950 px-10 font-accent text-[17px] font-semibold text-white transition-colors hover:bg-zinc-700">
                   Comprar
                 </button>
                 <button
