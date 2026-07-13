@@ -181,7 +181,7 @@ export default function Home() {
             </ul>
             <div className="flex flex-wrap items-center gap-5 pt-2">
               <Link
-                href="/trade-in"
+                href="/trade-in/comecar"
                 className="inline-flex h-11 items-center rounded-lg bg-zinc-950 px-6 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700"
               >
                 Avaliar o meu iPhone

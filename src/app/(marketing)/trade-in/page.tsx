@@ -71,7 +71,7 @@ export default function TradeInPage() {
               Entrega o teu iPhone atual e paga apenas a diferença.
             </p>
             <Link
-              href="/comprar"
+              href="/trade-in/comecar"
               className="mt-5 inline-flex h-10 items-center rounded-lg bg-white px-5 font-accent text-sm font-semibold text-zinc-950 transition-colors hover:bg-zinc-100 sm:h-11 sm:text-[15px]"
             >
               Começar o Trade-In
@@ -111,7 +111,7 @@ export default function TradeInPage() {
               vê quanto pagas de facto.
             </p>
             <Link
-              href="/comprar"
+              href="/trade-in/comecar"
               className="inline-flex h-11 w-fit items-center rounded-lg bg-zinc-950 px-6 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700"
             >
               Ver catálogo
