@@ -11,7 +11,38 @@ import { lifestyleImages, type CatalogProduct } from '@/lib/data/products';
 const EXTRA_SHOTS = [lifestyleImages.pdp.screen, lifestyleImages.pdp.body];
 const CYCLE_MS = 800;
 
-export function ProductCard({ product }: { product: CatalogProduct }) {
+function CheckIcon() {
+  return (
+    <svg
+      className="h-3.5 w-3.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M5 13l4 4L19 7" />
+    </svg>
+  );
+}
+
+type ProductCardProps = {
+  product: CatalogProduct;
+  /** Quando definido, o card comporta-se como opção selecionável em vez de link. */
+  onSelect?: () => void;
+  selected?: boolean;
+  /** Em fluxos onde o utilizador não compra (ex.: identificar o seu modelo), esconde preço e avaliação. */
+  showPricing?: boolean;
+};
+
+export function ProductCard({
+  product,
+  onSelect,
+  selected = false,
+  showPricing = true,
+}: ProductCardProps) {
   const images = [product.image, ...EXTRA_SHOTS];
   const [index, setIndex] = useState(0);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -27,13 +58,8 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
     setIndex(0);
   }, []);
 
-  return (
-    <Link
-      href={`/comprar/${product.id}`}
-      className="group flex flex-col rounded-xl border border-zinc-100 bg-white p-5"
-      onMouseEnter={startCycle}
-      onMouseLeave={stopCycle}
-    >
+  const content = (
+    <>
       <div className="relative mx-auto h-44 w-full overflow-hidden rounded-lg">
         <Image
           src={images[index]}
@@ -42,6 +68,11 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
           sizes="(max-width: 640px) 90vw, 260px"
           className="object-cover transition-transform duration-300 ease-out group-hover:scale-110"
         />
+        {onSelect && selected ? (
+          <span className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-950 text-white">
+            <CheckIcon />
+          </span>
+        ) : null}
       </div>
       <div className="mt-3 flex items-center justify-center gap-1" aria-hidden>
         {images.map((_, i) => (
@@ -67,18 +98,54 @@ export function ProductCard({ product }: { product: CatalogProduct }) {
           <span className="text-xs font-semibold">+{product.extraColors}</span>
         ) : null}
       </div>
-      <RatingStars
-        rating={product.rating}
-        reviewsCount={product.reviewsCount}
-        className="mt-2"
-      />
-      <p className="mt-2 text-sm text-zinc-700">A partir de</p>
-      <p className="font-accent text-2xl font-bold tracking-tight">
-        {formatKz(product.price)}
-      </p>
-      <p className="text-sm text-red-600">
-        <s>{formatKz(product.newPrice)}</s> novo
-      </p>
+      {showPricing ? (
+        <>
+          <RatingStars
+            rating={product.rating}
+            reviewsCount={product.reviewsCount}
+            className="mt-2"
+          />
+          <p className="mt-2 text-sm text-zinc-700">A partir de</p>
+          <p className="font-accent text-2xl font-bold tracking-tight">
+            {formatKz(product.price)}
+          </p>
+          {onSelect ? null : (
+            <p className="text-sm text-red-600">
+              <s>{formatKz(product.newPrice)}</s> novo
+            </p>
+          )}
+        </>
+      ) : null}
+    </>
+  );
+
+  if (onSelect) {
+    return (
+      <button
+        type="button"
+        onClick={onSelect}
+        aria-pressed={selected}
+        className={`group flex h-full w-full cursor-pointer flex-col rounded-xl border bg-white p-5 text-left transition-colors ${
+          selected
+            ? 'border-zinc-200 bg-selected'
+            : 'border-zinc-100 hover:border-zinc-200'
+        }`}
+        onMouseEnter={startCycle}
+        onMouseLeave={stopCycle}
+      >
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      href={`/comprar/${product.id}`}
+      className="group flex flex-col rounded-xl border border-zinc-100 bg-white p-5"
+      onMouseEnter={startCycle}
+      onMouseLeave={stopCycle}
+    >
+      {content}
     </Link>
   );
 }

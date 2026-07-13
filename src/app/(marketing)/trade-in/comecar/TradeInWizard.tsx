@@ -1,9 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 
+import { ProductCard } from '@/components/features/products/ProductCard';
 import type { CatalogProduct } from '@/lib/data/products';
 import { formatKz } from '@/lib/utils/format';
 
@@ -93,29 +93,26 @@ function Stepper({ current }: { current: number }) {
         return (
           <li key={step.title} className="flex flex-1 items-center gap-2 sm:gap-3">
             <span
-              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
-                done
-                  ? 'bg-emerald-600 text-white'
-                  : active
-                    ? 'bg-zinc-950 text-white'
-                    : 'bg-zinc-200 text-zinc-500'
-              }`}
+              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-semibold transition-colors ${done
+                ? 'bg-emerald-600 text-white'
+                : active
+                  ? 'bg-zinc-950 text-white'
+                  : 'bg-zinc-200 text-zinc-500'
+                }`}
             >
               {done ? <CheckIcon /> : i + 1}
             </span>
             <span
-              className={`hidden flex-1 text-sm font-medium lg:block ${
-                active ? 'text-zinc-950' : 'text-zinc-500'
-              }`}
+              className={`hidden flex-1 text-sm font-medium lg:block ${active ? 'text-zinc-950' : 'text-zinc-500'
+                }`}
             >
               {step.title}
             </span>
             {i < stepMeta.length - 1 ? (
               <span
                 aria-hidden
-                className={`h-0.5 flex-1 rounded-full transition-colors lg:max-w-8 ${
-                  done ? 'bg-emerald-600' : 'bg-zinc-200'
-                }`}
+                className={`h-0.5 flex-1 rounded-full transition-colors lg:max-w-8 ${done ? 'bg-emerald-600' : 'bg-zinc-200'
+                  }`}
               />
             ) : null}
           </li>
@@ -142,18 +139,16 @@ function OptionCard({
     <button
       type="button"
       onClick={onSelect}
-      className={`flex w-full cursor-pointer items-center justify-between gap-4 rounded-xl border px-5 py-4 text-left transition-colors ${
-        selected
-          ? 'border-zinc-950 bg-selected'
-          : 'border-zinc-200 bg-white hover:border-zinc-400'
-      }`}
+      className={`flex w-full cursor-pointer items-center justify-between gap-4 rounded-xl border px-5 py-4 text-left transition-colors ${selected
+        ? 'border-zinc-950 bg-selected'
+        : 'border-zinc-200 bg-white hover:border-zinc-400'
+        }`}
     >
       <span className="flex items-start gap-3">
         <span
           aria-hidden
-          className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${
-            selected ? 'border-zinc-950' : 'border-zinc-400'
-          }`}
+          className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border ${selected ? 'border-zinc-950' : 'border-zinc-400'
+            }`}
         >
           {selected ? <span className="h-2.5 w-2.5 rounded-full bg-zinc-950" /> : null}
         </span>
@@ -181,7 +176,6 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
     'carregador',
     'faceid',
   ]);
-  const [submitted, setSubmitted] = useState(false);
 
   const newPhone = products.find((p) => p.id === newPhoneId) ?? null;
   const oldPhone = products.find((p) => p.id === oldPhoneId) ?? null;
@@ -218,7 +212,6 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
   }
 
   function goNext() {
-    if (step === 2) setSubmitted(true);
     setStep((s) => Math.min(stepMeta.length - 1, s + 1));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
@@ -229,7 +222,7 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
   }
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 py-10">
+    <div className="mx-auto w-full max-w-6xl px-6 py-10">
       {/* Progresso */}
       <Stepper current={step} />
 
@@ -249,41 +242,15 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
         <div>
           {/* Passo 1 — escolher o novo iPhone */}
           {step === 0 ? (
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {products.map((product) => {
-                const selected = product.id === newPhoneId;
-                return (
-                  <button
-                    key={product.id}
-                    type="button"
-                    onClick={() => setNewPhoneId(product.id)}
-                    className={`flex cursor-pointer flex-col gap-3 rounded-2xl border bg-white p-4 text-left transition-colors ${
-                      selected
-                        ? 'border-zinc-950 bg-selected'
-                        : 'border-zinc-200 hover:border-zinc-400'
-                    }`}
-                  >
-                    <span className="relative h-28 w-full overflow-hidden rounded-xl">
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        sizes="(max-width: 640px) 45vw, 200px"
-                        className="object-cover"
-                      />
-                      {selected ? (
-                        <span className="absolute top-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-zinc-950 text-white">
-                          <CheckIcon className="h-3.5 w-3.5" />
-                        </span>
-                      ) : null}
-                    </span>
-                    <span className="text-[15px] font-semibold">{product.name}</span>
-                    <span className="font-accent text-lg font-bold tracking-tight">
-                      {formatKz(product.price)}
-                    </span>
-                  </button>
-                );
-              })}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
+              {products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  selected={product.id === newPhoneId}
+                  onSelect={() => setNewPhoneId(product.id)}
+                />
+              ))}
             </div>
           ) : null}
 
@@ -300,11 +267,10 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
                         key={product.id}
                         type="button"
                         onClick={() => setOldPhoneId(product.id)}
-                        className={`cursor-pointer rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors ${
-                          selected
-                            ? 'border-zinc-950 bg-selected'
-                            : 'border-zinc-200 bg-white hover:border-zinc-400'
-                        }`}
+                        className={`cursor-pointer rounded-xl border px-4 py-3 text-left text-sm font-medium transition-colors ${selected
+                          ? 'border-zinc-950 bg-selected'
+                          : 'border-zinc-200 bg-white hover:border-zinc-400'
+                          }`}
                       >
                         {product.name}
                       </button>
@@ -369,19 +335,17 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
                             key={extra.id}
                             type="button"
                             onClick={() => toggleExtra(extra.id)}
-                            className={`flex cursor-pointer items-center gap-3 rounded-xl border px-5 py-4 text-left font-semibold transition-colors ${
-                              checked
-                                ? 'border-zinc-950 bg-selected'
-                                : 'border-zinc-200 bg-white hover:border-zinc-400'
-                            }`}
+                            className={`flex cursor-pointer items-center gap-3 rounded-xl border px-5 py-4 text-left font-semibold transition-colors ${checked
+                              ? 'border-zinc-950 bg-selected'
+                              : 'border-zinc-200 bg-white hover:border-zinc-400'
+                              }`}
                           >
                             <span
                               aria-hidden
-                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${
-                                checked
-                                  ? 'border-zinc-950 bg-zinc-950 text-white'
-                                  : 'border-zinc-300 bg-white'
-                              }`}
+                              className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border-2 transition-colors ${checked
+                                ? 'border-zinc-950 bg-zinc-950 text-white'
+                                : 'border-zinc-300 bg-white'
+                                }`}
                             >
                               {checked ? <CheckIcon className="h-3.5 w-3.5" /> : null}
                             </span>
@@ -497,7 +461,18 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
         </div>
 
         {/* Resumo lateral */}
-        <aside className="lg:sticky lg:top-40 lg:self-start">
+        <aside className="flex flex-col gap-4 lg:sticky lg:top-40 lg:self-start">
+          {step < 3 ? (
+            <button
+              type="button"
+              onClick={goNext}
+              disabled={!canContinue}
+              className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg bg-zinc-950 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:bg-zinc-300"
+            >
+              {step === 2 ? 'Confirmar Trade-In' : 'Continuar'}
+            </button>
+          ) : null}
+
           <div className="rounded-2xl border border-zinc-200 bg-white p-6">
             <h2 className="text-lg font-semibold">Resumo</h2>
 
@@ -563,37 +538,30 @@ export function TradeInWizard({ products }: { products: CatalogProduct[] }) {
       </div>
 
       {/* Navegação */}
-      {!submitted || step < 3 ? (
-        <div className="mt-10 flex items-center justify-between gap-4">
-          {step > 0 ? (
-            <button
-              type="button"
-              onClick={goBack}
-              className="flex h-12 cursor-pointer items-center gap-2 rounded-lg px-5 text-[15px] font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
-            >
-              ← Voltar
-            </button>
-          ) : (
-            <Link
-              href="/trade-in"
-              className="flex h-12 items-center gap-2 rounded-lg px-5 text-[15px] font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
-            >
-              ← Cancelar
-            </Link>
-          )}
-
-          {step < 3 ? (
-            <button
-              type="button"
-              onClick={goNext}
-              disabled={!canContinue}
-              className="flex h-12 cursor-pointer items-center rounded-lg bg-zinc-950 px-7 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700 disabled:cursor-not-allowed disabled:bg-zinc-300"
-            >
-              {step === 2 ? 'Confirmar Trade-In' : 'Continuar'}
-            </button>
-          ) : null}
-        </div>
-      ) : null}
+      <div className="mt-10 flex items-center">
+        {step > 0 ? (
+          <button
+            type="button"
+            onClick={goBack}
+            className="flex h-12 cursor-pointer items-center gap-2 rounded-lg px-5 text-[15px] font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+            Voltar
+          </button>
+        ) : (
+          <Link
+            href="/trade-in"
+            className="flex h-12 items-center gap-2 rounded-lg px-5 text-[15px] font-semibold text-zinc-700 transition-colors hover:bg-zinc-100"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+              <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+            </svg>
+            Cancelar
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

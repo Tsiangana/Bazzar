@@ -81,12 +81,20 @@ export default function VenderPage() {
             <p className="mt-3 text-sm text-white/80 sm:text-base">
               Sem negociar com estranhos. Avaliação justa e pagamento rápido.
             </p>
-            <Link
-              href="#avaliacao"
-              className="mt-5 inline-flex h-10 items-center rounded-lg bg-white px-5 font-accent text-sm font-semibold text-zinc-950 transition-colors hover:bg-zinc-100 sm:h-11 sm:text-[15px]"
-            >
-              Pedir avaliação
-            </Link>
+            <div className="mt-5 flex flex-wrap items-center gap-3">
+              <Link
+                href="/vender/comecar"
+                className="inline-flex h-10 items-center rounded-lg bg-white px-5 font-accent text-sm font-semibold text-zinc-950 transition-colors hover:bg-zinc-100 sm:h-11 sm:text-[15px]"
+              >
+                Pedir avaliação
+              </Link>
+              <Link
+                href="#avaliacao"
+                className="inline-flex h-10 items-center rounded-lg border border-white/40 px-5 text-sm font-semibold text-white transition-colors hover:bg-white/10 sm:h-11 sm:text-[15px]"
+              >
+                Como funciona
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -130,6 +138,19 @@ export default function VenderPage() {
             </li>
           ))}
         </ol>
+
+        <div className="mt-5 flex flex-col items-start justify-between gap-4 rounded-2xl bg-accent px-6 py-5 sm:flex-row sm:items-center">
+          <p className="text-[15px] font-medium">
+            No final, decides: <b>venda direta</b> com valor garantido ou{' '}
+            <b>leilão</b> na plataforma, gerido por nós.
+          </p>
+          <Link
+            href="/vender/comecar"
+            className="inline-flex h-11 shrink-0 items-center rounded-lg bg-zinc-950 px-6 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700"
+          >
+            Começar avaliação
+          </Link>
+        </div>
       </section>
 
       {/* O que influencia o valor */}
@@ -147,12 +168,18 @@ export default function VenderPage() {
               Antes de pedires a avaliação, vê os fatores que pesam no valor
               final.
             </p>
+            <Link
+              href="/vender/comecar"
+              className="mt-6 inline-flex h-11 items-center rounded-lg bg-zinc-950 px-6 font-accent text-[15px] font-semibold text-white transition-colors hover:bg-zinc-700"
+            >
+              Avaliar o meu iPhone
+            </Link>
           </div>
           <ul className="flex flex-col gap-3">
             {valueFactors.map(([title, text]) => (
               <li
                 key={title}
-                className="rounded-xl bg-white p-4 shadow-sm"
+                className="rounded-xl bg-white p-4"
               >
                 <p className="text-[15px] font-semibold">{title}</p>
                 <p className="mt-1 text-sm text-zinc-600">{text}</p>
