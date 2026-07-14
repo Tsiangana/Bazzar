@@ -134,7 +134,7 @@ export default function ComoFuncionaPage() {
                     {phase.steps.map((step, i) => (
                       <li
                         key={step}
-                        className="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm"
+                        className="flex items-center gap-4 rounded-xl bg-white p-4"
                       >
                         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-zinc-950 text-xs font-semibold text-white">
                           {offset + i + 1}
